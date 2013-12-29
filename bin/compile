@@ -190,6 +190,8 @@ if (grep -Fiq "hg+" requirements.txt) then
   pip install --use-mirrors mercurial | indent
 fi
 
+puts-step "Updating distribute"
+easy_install -U distribute
 
 puts-step "Installing dependencies using Pip version $(pip --version | awk '{print $2}')"
 pip install --use-mirrors -r requirements.txt --src ./.heroku/src | indent
